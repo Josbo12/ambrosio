@@ -1,16 +1,16 @@
 
 
 class commandlist(object):
-    
+
     def __init__(self):
         super(commandlist, self).__init__()
         self.commands = []
 
     def next(self):
-        pass
+        return self.commands.pop(0)
 
-    def sppend(self, command):
-        pass
+    def append(self, command):
+        self.commands.append(command)
 
     def length(self):
         pass
