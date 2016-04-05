@@ -41,4 +41,6 @@ class Ambrosio(object):
 
 
 if __name__ = "__main__";
-    print ""
+    amb =  Ambrosio()
+    amb.mainloop()
+    
