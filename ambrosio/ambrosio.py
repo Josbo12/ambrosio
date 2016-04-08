@@ -3,6 +3,7 @@
 import time
 from commandlist import Commandlist
 import channels as ch
+import action as ac
 
 
 class Ambrosio(object):
@@ -17,6 +18,10 @@ class Ambrosio(object):
         self.channels = []
         self.channels.append(ch.TextChannel())
 
+        self.actions = []
+        self.actions.append(ac.MusicPlayer())
+
+
     def next_command(self):
         try:
             return self.c1.next()
@@ -27,6 +32,11 @@ class Ambrosio(object):
             while chan.msg_avail():
                 self.c1.append(chan.get_msg())
 
+
+    def execute_command(self, command):
+        print "Will execute", command
+
+
     def mainloop(self):
         # while True:
         # command = get_command
@@ -35,7 +45,7 @@ class Ambrosio(object):
         while True:
             command = self.next_command()
             if command:
-                print command
+                self.execute_command(command)
             time.sleep(1)
             self.update_channels()
 
@@ -43,4 +53,3 @@ class Ambrosio(object):
 if __name__ = "__main__";
     amb =  Ambrosio()
     amb.mainloop()
-    
